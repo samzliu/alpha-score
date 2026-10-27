@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;background:#1f1f1e;font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#e8e6e1}
+.wrap{width:880px;padding:28px 32px}
+.hdr{color:#a3a09a;font-size:13px;margin-bottom:18px} .hdr b{color:#d97757}
+.user{background:#2f2f2d;border-radius:14px;padding:14px 18px;margin:0 0 18px 80px}
+.tool{border:1px solid #3a3936;border-radius:10px;margin:10px 0;font:13px/1.5 ui-monospace,Menlo,monospace;overflow:hidden}
+.th{background:#2a2a28;padding:8px 12px;color:#cfccc5} .arg{color:#8fb3d9}
+.tr{padding:8px 12px;color:#b9d7a8} .dim{color:#85827c}
+.ans{margin-top:18px} code{background:#2f2f2d;padding:1px 5px;border-radius:4px;font-size:13px}
+</style></head><body><div class="wrap">
+<div class="hdr"><b>✻ Claude Code</b> · MCP server <b>alpha-score</b> connected · reference model glm-5.3-flash on Fireworks</div>
+<div class="user">I have two essays on gefilte fish: examples/high_gefilte.txt (a blog post) and examples/claude_gefilte.txt (an AI-written essay). Which one has more original ideas? Use the alpha-score MCP tools (score_file on each file), then answer in 4-6 sentences, citing the scores and one surprising span.</div>
+<div class="tool"><div class="th">⚙ alpha-score · <b>score_file</b> <span class="arg">{"path": "examples/high_gefilte.txt"}</span></div>
+<div class="tr">→ alpha +1.443 · verdict <b>high</b> · percentiles {&quot;claude&quot;: 100, &quot;wiki&quot;: 100, &quot;high&quot;: 82, &quot;crank&quot;: 83}<br><span class="dim">+ surprising_spans, top_passages, components, usage ($0.0048)</span></div></div><div class="tool"><div class="th">⚙ alpha-score · <b>score_file</b> <span class="arg">{"path": "examples/claude_gefilte.txt"}</span></div>
+<div class="tr">→ alpha -0.253 · verdict <b>low</b> · percentiles {&quot;claude&quot;: 12, &quot;wiki&quot;: 83, &quot;high&quot;: 0, &quot;crank&quot;: 0}<br><span class="dim">+ surprising_spans, top_passages, components, usage ($0.0043)</span></div></div>
+<div class="ans">The blog post (<code>high_gefilte.txt</code>) has far more original content. It scored α = +1.44, rated <b>high</b>, which beats 100% of the benchmark Claude essays and Wikipedia articles and 82% of the high-alpha human essays. The AI essay (<code>claude_gefilte.txt</code>) scored α = −0.25, rated <b>low</b>, beating only 12% of Claude essays and 0% of the high-alpha set. Its least predictable spans were section headings like &quot;The Great <b>Sugar</b> Divide&quot; and &quot;The <b>Jar</b> Problem,&quot; not new ideas. The single most surprising span in the blog, &quot;man neme gef<b>ü</b>[ege]lte hechede&quot; (NLL 18.25), is a quoted Old Yiddish recipe, so that is unusual vocabulary rather than an original idea. A better example of real novelty is the blog&#x27;s top-scoring passage, which suggests gefilte fish is declining partly because it became a meme, alongside its prediction that the dish &quot;will outlive Gen Z. Perhaps <b>optim</b>istically&quot; (NLL 14.25). One caveat: alpha measures how far a text departs from what the reference model (glm-5.3-flash) expects. It doesn&#x27;t check whether the ideas are true or good.</div>
+</div></body></html>

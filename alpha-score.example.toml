@@ -1,0 +1,18 @@
+# Copy to ./alpha-score.toml or ~/.config/alpha-score/config.toml. Every field is optional.
+provider = "fireworks"            # "fireworks" or "openai" (any OpenAI-compatible /v1/completions with echo + logprobs)
+model = "glm-5.3-flash"           # `alpha-score models` lists the options
+api_key_env = "FIREWORKS_API_KEY" # the env var holding your key; never put the key itself here
+workers = 16                      # concurrent requests (lower it if you hit 429 rate limits)
+max_passages = 20                 # ~100-word passages per document; longer texts are truncated
+repeats = 1                       # 2 halves the sampling-noise variance (run-to-run SD 0.26 -> ~0.18) at 2x cost
+
+# Self-hosted vLLM instead:
+# provider = "openai"
+# base_url = "http://localhost:8000/v1"
+# model = "qwen2.5-72b"           # registry key -> sends the HF id (Qwen/Qwen2.5-72B)
+# api_key_env = "VLLM_API_KEY"
+
+# A dedicated Fireworks deployment of a base model (`alpha-score deploy --model qwen2.5-72b`):
+# model = "qwen2.5-72b"
+# deployment = "alpha-score-1a2b3c4d"
+# account_id = "my-account"

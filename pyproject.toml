@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "alpha-score"
+version = "0.1.0"
+description = "Score any text for alpha: genuinely new content relative to a reference LLM, from token log-probabilities alone."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["requests>=2.28", "rich>=13", "mcp>=1.2"]
+
+[project.optional-dependencies]
+modal = ["modal>=1.0"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+alpha-score = "alpha_score.cli:main"
+alpha-score-mcp = "alpha_score.mcp_server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/alpha_score"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "README.md", "LICENSE", "docs", "examples"]

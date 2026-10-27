@@ -137,4 +137,4 @@ the model generates ([details](docs/HOW_IT_WORKS.md#why-it-needs-prompt-token-lo
 
 ## License
 
-MIT. The benchmark and example texts belong to their authors; see [DATA.md](DATA.md).
+[PolyForm Noncommercial 1.0.0](LICENSE): free for any noncommercial use (personal, research, education, nonprofits). For commercial use, contact Fergana Labs. The benchmark and example texts belong to their authors; see [DATA.md](DATA.md).

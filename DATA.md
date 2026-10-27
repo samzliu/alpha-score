@@ -1,6 +1,6 @@
 # Data and licensing
 
-The code is MIT-licensed. The **texts** in `examples/` and `eval/data/` come from several sources. Most are not ours
+The code is licensed under PolyForm Noncommercial 1.0.0 (see LICENSE). The **texts** in `examples/` and `eval/data/` come from several sources. Most are not ours
 to relicense.
 
 | class | source | in this repo | redistributable? |
